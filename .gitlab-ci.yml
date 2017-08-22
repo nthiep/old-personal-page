@@ -4,6 +4,9 @@ pages:
   - mkdir .public
   - cp -r * .public
   - mv .public public
+  environment:
+    name: staging
+    url: https://staging.example.com
   artifacts:
     paths:
     - public
