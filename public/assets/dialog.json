@@ -1,0 +1,243 @@
+{
+    "fromXianzhe": [{
+        "id": "0000",
+        "details": [
+            ["😜", "Hello, nice to meet you!"]
+        ],
+        "responses": [{
+            "content": "Hi！",
+            "nextXianzhe": ["0003"]
+        }, {
+            "content": "What the hell are you?",
+            "nextXianzhe": ["0001"]
+        }, {
+            "content": "Your name's Hiep, isn't it?",
+            "nextXianzhe": ["0002"]
+        }],
+        "nextUser": ["1000"]
+    }, {
+        "id": "0001",
+        "details": [
+            ["...", "Say my name!"]
+        ],
+        "responses": [{
+            "content": "Hiep Nguyen",
+            "nextXianzhe": ["0002"]
+        }]
+    }, {
+        "id": "0002",
+        "details": [
+            ["You're Goddamn Right!"]
+        ],
+        "nextXianzhe": ["0003"]
+    }, {
+        "id": "0003",
+        "details": [
+            ["What do you want from me?"]
+        ],
+        "responses": [{
+            "content": "Describe yourself.",
+            "nextXianzhe": ["0004"]
+        }, {
+            "content": "F*** you!",
+            "nextXianzhe": ["0010"]
+        }, {
+            "content": "Give me your phone number.",
+            "nextXianzhe": ["0006"]
+        }]
+    }, {
+        "id": "0004",
+        "details": [
+            ["Well...", "My name is Hiep", "from the earth...", "the third planet from the Sun", "<img src='http://img.khoahoc.tv/photos/image/2017/07/28/trai-dat.jpg'>"]
+        ],
+        "nextXianzhe": ["0005"]
+    }, {
+        "id": "0005",
+        "details": [
+            ["hihi", "<a href='https://twitter.com/hieptux'>more details</a>"]
+        ],
+        "responses": [{
+            "content": "Your job is?",
+            "nextXianzhe": ["0023"]
+        }]
+    }, {
+        "id": "0006",
+        "details": [
+            ["Are you a girl?", "🤔"]
+        ],
+        "responses": [{
+            "content": "Yes!",
+            "nextXianzhe": ["0009"]
+        }, {
+            "content": "No, I'm a real man",
+            "nextXianzhe": ["0010"]
+        }]
+    }, {
+        "id": "0007",
+        "details": [
+            [
+                "I'm sleep",
+                "<img src='https://www.catster.com/wp-content/uploads/2017/07/gray-and-white-cat-asleep-with-whiskers-out.jpg'>",
+                "Haha"
+            ]
+        ],
+        "nextXianzhe": ["0006"]
+    }, {
+        "id": "0009",
+        "details": [
+            ["Ahihi, i'm single!", "contact me via email <a href='mailto:hi@hiep.vn'>hi@hiep.vn</a>"]
+        ]
+    }, {
+        "id": "0010",
+        "details": [
+            ["😞", "F*** you guy, goodbye!"]
+        ]
+    }, {
+        "id": "0019",
+        "details": [
+            [
+                "<img src='https://i.ytimg.com/vi/o4TgNVvk_Xk/maxresdefault.jpg'>"
+            ]
+        ],
+        "nextUser": ["1000"]
+    }, {
+        "id": "0023",
+        "details": [
+            ["I am software engineer!"]
+        ],
+        "responses": [{
+            "content": "Your skills?",
+            "nextXianzhe": ["0024"]
+        }, {
+            "content": "And? ",
+            "nextXianzhe": ["0006"]
+        }]
+    }, {
+        "id": "0024",
+        "details": [
+            ["Android developer", "Nodejs, Python", "AWS", "..."],
+            ["anything", "more details: <a href='https://github.com/nthiep'>https://github.com/nthiep</a>"]
+        ]
+    }, {
+        "id": "0027",
+        "details": [
+            [
+                "I'm Hiep Nguyen",
+                "from the Earth",
+                "Where you come from?"
+            ]
+        ],
+        "responses": [{
+            "content": "Mars 1",
+            "nextXianzhe": ["0034"]
+        }, {
+            "content": "Mars 2",
+            "nextXianzhe": ["0034"]
+        }, {
+            "content": "Mars 3",
+            "nextXianzhe": ["0034"]
+        }]
+    }, {
+        "id": "0028",
+        "details": [
+            ["😍", "<img src='http://360kpop.net/wp-content/uploads/2017/02/tzuyu-tha-tim.jpg'>", "<img src='https://i.pinimg.com/originals/f9/3d/bc/f93dbc2fcb9072cb44f9320bec95835f.jpg'>"]
+        ],
+        "responses": [{
+            "content": "more?",
+            "nextXianzhe": ["0029"]
+        }]
+    }, {
+        "id": "0029",
+        "details": [
+            ["hihi", "<img src='https://pa1.narvii.com/6583/65fdb9a6aaf40e2374f281518179dd1a178f2770_hq.gif'>", "<img src='https://channel-korea.com/wp-content/uploads/2017/05/tzuyu-dispatch-2-1.jpg'>", "<img src='https://i.pinimg.com/originals/f5/05/ec/f505ec4a493959f044923174e92d7b79.jpg'>"]
+        ],
+        "responses": [{
+            "content": "..."
+        }]
+    }, {
+        "id": "0030",
+        "details": [
+            ["The truth is out there!"]
+        ],
+        "responses": [{
+            "content": "What?",
+            "nextXianzhe": ["0031"]
+        }, {
+            "content": "The X-Files",
+            "nextXianzhe": ["0032"]
+        }]
+    }, {
+        "id": "0031",
+        "details": [
+            ["TRUST NO ONE "],
+            ["<img src='https://i.pinimg.com/originals/d1/d2/f9/d1d2f90a423095dd2b48bfa7c7d2fcf9.jpg'>"]
+        ],
+        "responses": [{
+            "content": "..."
+        }]
+    }, {
+        "id": "0032",
+        "details": [
+            ["Yes!", "<img src='https://i.pinimg.com/originals/d1/d2/f9/d1d2f90a423095dd2b48bfa7c7d2fcf9.jpg'>", "Don't trust anyone"]
+        ],
+        "responses": [{
+            "content": "..."
+        }]
+    }, {
+        "id": "0034",
+        "details": [
+            [
+                "Welcome to the earth!",
+                "<img src='http://cdn-tehran.wisgoon.com/dlir-s3/1053500x347_1516798623515655.jpg'>",
+                "is that you?",
+                "very handsome!"
+            ]
+        ],
+        "nextXianzhe": ["0003"]
+    }],
+    "fromUser": [{
+        "id": "1000",
+        "brief": "Hobbies",
+        "details": [
+            "What are your hobbies? ",
+            "What do you do during your free time? "
+        ],
+        "nextXianzhe": ["0007"]
+    }, {
+        "id": "1003",
+        "brief": "Love",
+        "details": [
+            "What about your love?"
+        ],
+        "nextXianzhe": ["0009"]
+    }, {
+        "id": "1004",
+        "brief": "Character",
+        "details": [
+            "What kind of character do you think you are? "
+        ],
+        "nextXianzhe": ["0019"]
+    }, {
+        "id": "1005",
+        "brief": "Photography",
+        "details": [
+            "Send a photo of what you took to see? "
+        ],
+        "nextXianzhe": ["0028"]
+    }, {
+        "id": "1007",
+        "brief": "The truth",
+        "details": [
+            "The truth",
+            "Oh! I want to see the truth"
+        ],
+        "nextXianzhe": ["0030"]
+    }, {
+        "id": "1006",
+        "brief": "About",
+        "details": [
+            "About you?"
+        ],
+        "nextXianzhe": ["0026", "0027"]
+    }]
+}

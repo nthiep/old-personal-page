@@ -1,56 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=100%, initial-scale=1">
+        <link rel="shortcut icon" href="image/favicon.ico">
+        <meta name="Description" CONTENT="Hello, My name is Hiep. Contact me at email: hi@hiep.vn, github: https://github.com/nthiep">
+        <meta name="google-site-verification" content="yJOU6kvoTm3qS0fG1lzrA3WucMWGKmi1tB17MTwRu_s" />
+        <meta name="google" content="hiep.vn" />
+        <title>Hiep Nguyen | I know nothing</title>
+        <link rel="stylesheet" href="css/main.min.css" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="mobile" :class="{ 'has-prompt': hasPrompt }">
+            <div id="mobile-head">
+                <div id="mobile-head-title">Hiep Nguyen</div>
+            </div>
+            <div id="mobile-body">
+                <div id="mobile-body-bg"></div>
+                <div id="mobile-body-content">
+                    <!--<div class="msg-time">21:40</div>-->
+                    <div id="mock-msg-row" class="msg-row">
+                        <div id="mock-msg" class="msg" v-html="latestMsgContent"></div>
+                    </div>
+                    <div class="msg-row"
+                        v-for="(msg, index) in messages"
+                        :key="index"
+                        :class="msg.author === 'xianzhe' ? 'msg-xianzhe' : 'msg-me'">
+                        <div class="msg"
+                            :class="'msg-bounce-in-' + (msg.author === 'xianzhe' ? 'left': 'right')"
+                            :style="msg.width && msg.height && {width: msg.width - 26 + 'px', height: msg.height - 18 + 'px'}"
+                            v-html="msg.content"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-foot">
+                <div id="prompt">
+                    <div id="prompt-head">
+                        <div class="say-something">Say something...</div>
+                        <a href="javascript:;" class="close-btn"
+                            v-on:click="togglePrompt(false)"></a>
+                    </div>
+                    <div id="prompt-body">
+                        <ul class="responses" v-if="lastDialog">
+                            <li v-for="res in lastDialog.responses">
+                                <a href="javascript:;" v-on:click="respond(res)">{{ res.content }}</a>
+                            </li>
+                        </ul>
+                        <div class="next-topic"
+                            v-if="!lastDialog || !lastDialog.responses">
+                            <ul class="topics">
+                                <li v-for="topic in nextTopics">
+                                    <a href="javascript:;" v-on:click="ask(topic)">{{ topic.brief }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="input-hint" class="say-something"
+                    v-on:click="togglePrompt(true)"
+                    :class="{'clickable': !isXianzheTyping }">
+                    <span v-if="!isXianzheTyping">Say something...</span>
+                    <span v-if="isXianzheTyping">I'm thinking...</span>
+                </div>
+            </div>
+            <div id="prompt-bg" v-on:click="togglePrompt(false)"></div>
+        </div>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAubm5MLm5uZa5ubnYubm5+Lm5ufi5ubnYubm5lrm5uTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC5ubkJubm5mLm5uf25ubn/ubm5/7m5uf+5ubn/ubm5/7m5uf+5ubn9ubm5mLm5uQkAAAAAAAAAAAAAAAC5ubkJubm5wLm5uf+5ubn/vLy8//T09P/9/f3//f39//T09P/Dw8P/ubm5/7m5uf+5ubnAubm5CQAAAAAAAAAAubm5mLm5uf+5ubn/ubm5/7m5uf+/v7/////////////CwsL/ubm5/7m5uf+5ubn/ubm5/7m5uZgAAAAAubm5MLm5uf25ubn/ubm5/7m5uf+5ubn/v7+/////////////wsLC/7m5uf+5ubn/ubm5/7m5uf+5ubn9ubm5MLm5uZa5ubn/ubm5/7m5uf+5ubn/ubm5/7+/v////////////8LCwv+5ubn/ubm5/7m5uf+5ubn/ubm5/7m5uZa5ubnYubm5/7m5uf+5ubn/ubm5/7m5uf+/v7/////////////CwsL/ubm5/7m5uf+5ubn/ubm5/7m5uf+5ubnYubm5+Lm5uf+5ubn/ubm5/7m5uf+5ubn/v7+/////////////wsLC/7m5uf+5ubn/ubm5/7m5uf+5ubn/ubm5+Lm5ufi5ubn/ubm5/7m5uf+5ubn/ubm5/7+/v////////////8LCwv+5ubn/ubm5/7m5uf+5ubn/ubm5/7m5ufi5ubnYubm5/7m5uf+5ubn/ubm5/7u7u//39/f////////////CwsL/ubm5/7m5uf+5ubn/ubm5/7m5uf+5ubnYubm5lrm5uf+5ubn/ubm5/7m5uf+5ubn/vr6+/76+vv++vr7/urq6/7m5uf+5ubn/ubm5/7m5uf+5ubn/ubm5lrm5uTC5ubn9ubm5/7m5uf+5ubn/ubm5/7y8vP/r6+v/7e3t/7+/v/+5ubn/ubm5/7m5uf+5ubn/ubm5/bm5uTAAAAAAubm5mLm5uf+5ubn/ubm5/7m5uf/MzMz////////////S0tL/ubm5/7m5uf+5ubn/ubm5/7m5uZgAAAAAAAAAALm5uQm5ubnAubm5/7m5uf+5ubn/vLy8/+fn5//q6ur/vr6+/7m5uf+5ubn/ubm5/7m5ucC5ubkJAAAAAAAAAAAAAAAAubm5Cbm5uZi5ubn9ubm5/7m5uf+5ubn/ubm5/7m5uf+5ubn/ubm5/bm5uZi5ubkJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAubm5MLm5uZa5ubnYubm5+Lm5ufi5ubnYubm5lrm5uTAAAAAAAAAAAAAAAAAAAAAA8A8AAMADAACAAQAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAIABAADAAwAA8A8AAA==" rel="icon" type="image/x-icon">
-    <meta name="Description" CONTENT="hello, my name is Hiep. contact me at email: hi@hiep.vn, github: nthiep">
-    <meta name="google-site-verification" content="yJOU6kvoTm3qS0fG1lzrA3WucMWGKmi1tB17MTwRu_s" />
-    <meta name="google" content="hiep.vn" />
-    <title>Hiep Nguyen | About</title>
-    <style>
-    pre {
-        white-space: pre-wrap;
-        white-space: -moz-pre-wrap;
-        white-space: -o-pre-wrap;
-        word-wrap: break-word;
-    }
-    
-    code {
-        font-family: Courier, 'New Courier', monospace;
-        font-size: 14px;
-    }
-    </style>
-</head>
+        <div class="extra-link" id="social-link" style="position: absolute; top: 10px;">
+            <a href="mailto:hi@hiep.vn" target="_blank">
+                <i class="fas fa-envelope" style="color:#FFA07A"></i>
+            </a>
+            <a href="https://twitter.com/hieptux" target="_blank">
+                <i class="fab fa-twitter" style="color:#87CEFA"></i>
+            </a>
+            <a  href="https://www.linkedin.com/in/hiepvn/" target="_blank">
+                <i class="fab fa-linkedin" style="color:#87CEFA"></i>
+            </a>
+            <a href="https://github.com/nthiep" target="_blank">
+                <i class="fab fa-github" style="color:white"></i>
+            </a>
+            <a href="https://github.com/Ovilia/ovilia.github.io" target="_blank">
+                <i class="fas fa-code-branch" style="color:white"></i>
+            </a>
+        </div>
 
-<body>
-	<blockquote>
-    <pre> <code>
-    $Hiep Nguyen: that's my name;
-    $Email: <a href="mailto:hi@hiep.vn">hi@hiep.vn</a>;
-    $Github: <a href="https://github.com/nthiep">nthiep</a>;
-    $Twitter: <a href="https://twitter.com/hieptux">hieptux</a>;
-    <p></p>
-    HHHHHHHHHH     HHHHHHHHHH   iiii   EEEEEEEEEEEEEEEEEEEEEE PPPPPPPPPPPPPPPPP   
-    H::::::::H     H::::::::H  i::::i  E::::::::::::::::::::E P::::::::::::::::P  
-    H::::::::H     H::::::::H   iiii   E::::::::::::::::::::E P::::::PPPPPP:::::P 
-    HH:::::::H     H:::::::HH          EE::::::EEEEEEEEE::::E PP:::::P     P:::::P
-      H::::::H     H::::::H   iiiiiii    E:::::E       EEEEEE   P::::P     P:::::P
-      H::::::H     H::::::H   i:::::i    E:::::E                P::::P     P:::::P
-      H:::::::HHHHH:::::::H    i::::i    E::::::EEEEEEEEEE      P::::PPPPPP:::::P 
-      H:::::::::::::::::::H    i::::i    E:::::::::::::::E      P:::::::::::::PP  
-      H:::::::::::::::::::H    i::::i    E:::::::::::::::E      P::::PPPPPPPPP    
-      H:::::::HHHHH:::::::H    i::::i    E::::::EEEEEEEEEE      P::::P            
-      H::::::H     H::::::H    i::::i    E:::::E                P::::P            
-      H::::::H     H::::::H    i::::i    E:::::E       EEEEEE   P::::P            
-    HH:::::::H     H:::::::HH i::::::i EE::::::EEEEEEEE:::::E PP::::::PP          
-    H::::::::H     H::::::::H i::::::i E::::::::::::::::::::E P::::::::P          
-    H::::::::H     H::::::::H i::::::i E::::::::::::::::::::E P::::::::P          
-    HHHHHHHHHH     HHHHHHHHHH iiiiiiii EEEEEEEEEEEEEEEEEEEEEE PPPPPPPPPP          
-	</code>
-	</pre>
-	</blockquote>
-</body>
+        <script src="lib/zepto.min.js"></script>
+        <script src="lib/vue.js"></script>
 
+        <script src="js/index-min.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-111278851-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </body>
 </html>

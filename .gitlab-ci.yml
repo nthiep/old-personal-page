@@ -5,8 +5,8 @@ pages:
   - cp -r * .public
   - mv .public public
   environment:
-    name: staging
-    url: https://staging.example.com
+    name: production
+    url: https://hiep.vn
   artifacts:
     paths:
     - public
