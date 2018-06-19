@@ -5,7 +5,7 @@
             ["😜", "Hello, nice to meet you!"]
         ],
         "responses": [{
-            "content": "Hi！",
+            "content": "Hi!",
             "nextXianzhe": ["0003"]
         }, {
             "content": "What the hell are you?",
@@ -48,7 +48,7 @@
     }, {
         "id": "0004",
         "details": [
-            ["Well...", "My name is Hiep", "from the earth...", "the third planet from the Sun", "<img src='http://img.khoahoc.tv/photos/image/2017/07/28/trai-dat.jpg'>"]
+            ["Well...", "My name is Hiep", "from the earth...", "the third planet from the Sun", "<img src='https://i.pinimg.com/originals/b2/f1/17/b2f1177cea910d95dca3048224b419d6.gif'>"]
         ],
         "nextXianzhe": ["0005"]
     }, {
@@ -77,8 +77,7 @@
         "details": [
             [
                 "I'm sleep",
-                "<img src='https://www.catster.com/wp-content/uploads/2017/07/gray-and-white-cat-asleep-with-whiskers-out.jpg'>",
-                "Haha"
+                "<img src='https://cdn.snsimg.carview.co.jp/carlife/images/UserDiary/472111/p1.jpg?ct=25ff0052a62e'>"
             ]
         ],
         "nextXianzhe": ["0006"]
@@ -96,7 +95,7 @@
         "id": "0019",
         "details": [
             [
-                "<img src='https://i.ytimg.com/vi/o4TgNVvk_Xk/maxresdefault.jpg'>"
+                "<img src='https://awoiaf.westeros.org/images/thumb/e/e9/Night_king.jpg/300px-Night_king.jpg'>"
             ]
         ],
         "nextUser": ["1000"]
@@ -140,10 +139,10 @@
     }, {
         "id": "0028",
         "details": [
-            ["😍", "<img src='http://360kpop.net/wp-content/uploads/2017/02/tzuyu-tha-tim.jpg'>", "<img src='https://i.pinimg.com/originals/f9/3d/bc/f93dbc2fcb9072cb44f9320bec95835f.jpg'>"]
+            ["😍", "<img src='https://360kpop.net/wp-content/uploads/2017/02/tzuyu-tha-tim.jpg'>", "<img src='https://i.pinimg.com/originals/f9/3d/bc/f93dbc2fcb9072cb44f9320bec95835f.jpg'>"]
         ],
         "responses": [{
-            "content": "more?",
+            "content": "More?",
             "nextXianzhe": ["0029"]
         }]
     }, {
@@ -169,8 +168,7 @@
     }, {
         "id": "0031",
         "details": [
-            ["TRUST NO ONE "],
-            ["<img src='https://i.pinimg.com/originals/d1/d2/f9/d1d2f90a423095dd2b48bfa7c7d2fcf9.jpg'>"]
+            ["TRUST NO ONE "]
         ],
         "responses": [{
             "content": "..."
@@ -178,7 +176,7 @@
     }, {
         "id": "0032",
         "details": [
-            ["Yes!", "<img src='https://i.pinimg.com/originals/d1/d2/f9/d1d2f90a423095dd2b48bfa7c7d2fcf9.jpg'>", "Don't trust anyone"]
+            ["Yes!", "Don't trust anyone"]
         ],
         "responses": [{
             "content": "..."
@@ -188,7 +186,7 @@
         "details": [
             [
                 "Welcome to the earth!",
-                "<img src='http://cdn-tehran.wisgoon.com/dlir-s3/1053500x347_1516798623515655.jpg'>",
+                "<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJZI5IQy7YhnJFdqTlolAbG1WXm4rRYWrZegBxDUP40IQZRV7N'>",
                 "is that you?",
                 "very handsome!"
             ]
@@ -221,7 +219,7 @@
         "id": "1005",
         "brief": "Photography",
         "details": [
-            "Send a photo of what you took to see? "
+            "Send me pics? "
         ],
         "nextXianzhe": ["0028"]
     }, {
